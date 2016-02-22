@@ -1,0 +1,1 @@
+C:\Users\sunnyt\Documents\Visual Studio 2015\Projects\Win10_IoTCore\Win10_IOTCore_WebBrowser\Win10_IOTCore_WebBrowser.csproj;arm
