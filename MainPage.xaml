@@ -11,16 +11,16 @@
         <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Vertical">
             <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Orientation="Horizontal" 
                         HorizontalAlignment="Center" Name="Container">
-                <Canvas Width="1000" Height="40" >
-                    <TextBox Text="URL" Name="UrlBar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                         FontSize="15" KeyDown="UrlBar_KeyDown" BorderThickness="1"></TextBox>
-                    <ProgressRing Name="Progress" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Collapsed"></ProgressRing>
+                <Canvas Width="1000" Height="40">
+                    <TextBox Text="" Name="UrlBar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                         FontSize="17" KeyDown="UrlBar_KeyDown" BorderThickness="1" Margin="0"></TextBox>
+                    <ProgressRing Name="Progress" HorizontalAlignment="Right" VerticalAlignment="Top" Visibility="Visible"></ProgressRing>
                 </Canvas>
-                <Button Content="GO" Name="GoBtn" Click="GoBtn_Click" Height="40"></Button>
+                <Button Content="GOOGLE" Name="GoBtn" Click="GoBtn_Click" Height="40"></Button>
             </StackPanel>
 
             <StackPanel Name="StkCont" HorizontalAlignment="Stretch" Height="750" BorderBrush="Blue" BorderThickness="0 2 0 0">
-                <WebView Width="1000" Height="750" Name="wv" Source="http://www.youtube.com" 
+                <WebView Width="1000" Height="750" Name="wv"
                          NavigationStarting="wv_ContentLoading"
                          DOMContentLoaded="wv_DOMContentLoaded"></WebView>
             </StackPanel>

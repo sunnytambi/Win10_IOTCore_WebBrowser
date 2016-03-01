@@ -11,16 +11,16 @@
         <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Vertical">
             <StackPanel x:ConnectionId='2' Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Orientation="Horizontal" 
                         HorizontalAlignment="Center" Name="Container">
-                <Canvas Width="1000" Height="40" >
-                    <TextBox x:ConnectionId='6' Text="URL" Name="UrlBar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                         FontSize="15"                          BorderThickness="1"></TextBox>
-                    <ProgressRing x:ConnectionId='7' Name="Progress" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Collapsed"></ProgressRing>
+                <Canvas Width="1000" Height="40">
+                    <TextBox x:ConnectionId='6' Text="" Name="UrlBar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                         FontSize="17"                          BorderThickness="1" Margin="0"></TextBox>
+                    <ProgressRing x:ConnectionId='7' Name="Progress" HorizontalAlignment="Right" VerticalAlignment="Top" Visibility="Visible"></ProgressRing>
                 </Canvas>
-                <Button x:ConnectionId='5' Content="GO" Name="GoBtn"                     Height="40"></Button>
+                <Button x:ConnectionId='5' Content="GOOGLE" Name="GoBtn"                     Height="40"></Button>
             </StackPanel>
 
             <StackPanel x:ConnectionId='3' Name="StkCont" HorizontalAlignment="Stretch" Height="750" BorderBrush="Blue" BorderThickness="0 2 0 0">
-                <WebView x:ConnectionId='4' Width="1000" Height="750" Name="wv" Source="http://www.youtube.com" 
+                <WebView x:ConnectionId='4' Width="1000" Height="750" Name="wv"
                                                                
                                                                ></WebView>
             </StackPanel>

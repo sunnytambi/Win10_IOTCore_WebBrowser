@@ -22,9 +22,42 @@ namespace Win10_IOTCore_WebBrowser
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private SpeechRobo robo;
+
         public MainPage()
         {
+            Loaded += MainPage_Loaded;
+            Unloaded += MainPage_Unloaded;
             this.InitializeComponent();
+
+            robo = new SpeechRobo();
+
+            UrlBar.GotFocus += UrlBar_GotFocus; ;
+            UrlBar.LostFocus += UrlBar_LostFocus;
+
+            GoBtn.Focus(FocusState.Keyboard);
+        }
+
+        private void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            robo.Init();
+            AddText();
+        }
+
+        // Release resources, stop recognizer, release pins, etc...
+        private async void MainPage_Unloaded(object sender, object args)
+        {
+            robo.Stop();
+        }
+
+        private void UrlBar_LostFocus(object sender, RoutedEventArgs e)
+        {
+            AddText();
+        }
+
+        private void UrlBar_GotFocus(object sender, RoutedEventArgs e)
+        {
+            RemoveText();
         }
 
         private void Navigate(string url)
@@ -34,7 +67,7 @@ namespace Win10_IOTCore_WebBrowser
 
         private void GoBtn_Click(object sender, RoutedEventArgs e)
         {
-            Navigate(UrlBar.Text);
+            Navigate("http://www.google.com");
         }
 
         private void UrlBar_KeyDown(object sender, KeyRoutedEventArgs e)
@@ -58,6 +91,19 @@ namespace Win10_IOTCore_WebBrowser
             if (args.Uri != null)
             {
                 UrlBar.Text = args.Uri.ToString();
+            }
+        }
+
+        private void RemoveText()
+        {
+            UrlBar.Text = "";
+        }
+
+        private void AddText()
+        {
+            if (string.IsNullOrEmpty(UrlBar.Text))
+            {
+                UrlBar.Text = "<<URL>>";
             }
         }
     }
